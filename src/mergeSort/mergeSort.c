@@ -1,45 +1,49 @@
 #include "mergeSort.h"
 
-void merge_sort(int* vet, int esq, int dir){
-	if(esq >= dir){
-		return;
-	}
-
-	int meio = (dir + esq) / 2;
-	merge_sort(vet,  esq, meio);
-	merge_sort(vet,  meio + 1, dir);
-	merge_sort_intercala(vet, esq, meio, dir);
+void mergeSort(int* vet, int n){
+    mergeSort_ordena(vet, 0, n-1);
 }
 
-void merge_sort_intercala(int* vet, int esq, int meio, int dir){
-	int i, j, k;
-	int tam_a = meio - esq + 1;
-	int tam_b = dir - meio;
-	int* a = malloc(tam_a * sizeof(int));
-	int* b = malloc(tam_b * sizeof(int));
+void mergeSort_ordena(int* vet, int esq, int dir){
+    if (esq >= dir){
+        return;
+    }
 
-	for(i = 0; i < tam_a; i++){
-		a[i] = vet[esq + i];
-	}
-	for(i = 0; i < tam_a; i++){
-		b[i] = vet[i + meio + 1];
-	}
+    int meio = (esq+dir)/2;
+    mergeSort_ordena(vet, esq, meio);
+    mergeSort_ordena(vet, meio+1, dir);
+    mergeSort_intercala(vet, esq, meio, dir);
+}
 
-	for(i = 0, j = 0, k = esq; k <= dir; k++){
-		if(i == tam_a){
-			vet[k] = b[j++];
-		}
-		else if(j == tam_b){
-			vet[k] = a[i++];
-		}
-		else if(a[i] < b[j]){
-			vet[k] = a[i++];
-		}
-		else if(a[i] >= b[j]){
-			vet[k] = b[j++];
-		}
-	}
+void mergeSort_intercala(int* vet, int esq, int meio, int dir){
+    int i, j, k;
+    int a_tam = meio-esq+1;
+    int b_tam = dir-meio;
+    int* a = (int*) malloc(sizeof(int) * a_tam);
+    int* b = (int*) malloc(sizeof(int) * b_tam);
 
-	free(a);
-	free(b);
+    for (i = 0; i < a_tam; i++){
+        a[i] = vet[i+esq];
+    }
+    for(i = 0; i < b_tam; i++){
+        b[i] = vet[i+meio+1];
+    }
+
+    for(i = 0, j = 0, k = esq; k <= dir; k++){
+        if (i == a_tam){
+            vet[k] = b[j++];
+        }
+        else if(j == b_tam){
+            vet[k] = a[i++];
+        }
+        else if(a[i] < b[j]){
+            vet[k] = a[i++];
+        }
+        else{
+            vet[k] = b[j++];
+        }
+    }
+
+    free(a);
+    free(b);
 }

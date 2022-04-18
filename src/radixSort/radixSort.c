@@ -1,13 +1,25 @@
 #include "radixSort.h"
 
-void countingSort(int* content, int length) {
+int findMaximum(int *v, int tam){
+    int max = v[0];
 
-    int maximum = _findMaximum(content);
+    for (int i = 1; i < tam; i++){
+        if (v[i] > max){
+            max = v[i];
+        }
+    }
+    
+    return max;
+}
+
+void countingSort(int* content, int length, int expo) {
+    int maximum = findMaximum(content, length);
     int* countingArray = calloc(maximum + 1, sizeof(int));
-    int* sortedArray = malloc(length + 1 * sizeof(int));
+    int* sortedArray = calloc(length + 1,  sizeof(int));
 
     for (int i = 0; i < length; i++) {
-        countingArray[i] += 1;
+        int idx = (content[i] / expo) % 10;
+        countingArray[idx] += 1;
     }
 
     for (int i = 1; i <= maximum; i++) {
@@ -15,11 +27,11 @@ void countingSort(int* content, int length) {
     }
 
     for (int i = maximum - 1; i >= 0; i--) {
-        int value = content[i];
-        int pos = countingArray[value];
+        int idx = (content[i] / expo) % 10;
+        int pos = countingArray[idx];
 
-        sortedArray[pos - 1] = value;
-        countingArray[value] -= 1;
+        sortedArray[pos - 1] = content[i];
+        countingArray[idx] -= 1;
     }
 
     // Copy the sorted elements into original array
@@ -29,13 +41,12 @@ void countingSort(int* content, int length) {
 
     free(countingArray);
     free(sortedArray);
-
 }
 
-void radixSort(int *v, int tam){
-    int max=Maximo(v, tam);
+void radixSort(int *v, int length){
+    int max = findMaximum(v, length);
 
-    for (int expo=1; max/expo>0; expo*=10){
-        countingSort(v, tam, expo);
+    for (int expo = 1; (max / expo) > 0; expo *= 10){
+        countingSort(v, length, expo);
     }
 }

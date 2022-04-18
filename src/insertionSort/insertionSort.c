@@ -1,6 +1,6 @@
 #include "insertionSort.h"
 
-void insertion_sort(int* vet, int n){
+void insertionSort(int* vet, int n){
  	int aux ;
  	int i, j;
 

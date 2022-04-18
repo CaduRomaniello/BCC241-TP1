@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void countingSort(int* content, int length);
+int findMaximum(int *v, int tam);
+void countingSort(int* content, int length, int expo);
 void radixSort(int *v, int tam);
