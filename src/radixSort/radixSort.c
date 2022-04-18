@@ -27,4 +27,15 @@ void countingSort(int* content, int length) {
         content[i] = sortedArray[i];
     }
 
+    free(countingArray);
+    free(sortedArray);
+
+}
+
+void radixSort(int *v, int tam){
+    int max=Maximo(v, tam);
+
+    for (int expo=1; max/expo>0; expo*=10){
+        countingSort(v, tam, expo);
+    }
 }
