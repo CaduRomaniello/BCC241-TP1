@@ -2,7 +2,7 @@ run:
 	../bin/main $(SIZE) $(ALG) > ../data/output/n$(SIZE)/$(ALG).out
 
 clean:
-	rm -f ../bin/main
+	find ../bin/ -type f -name '*' -not -name 'README.md' -delete
 
 create-input:
 	julia ./InputGenerator/input.jl $(ARGS)
