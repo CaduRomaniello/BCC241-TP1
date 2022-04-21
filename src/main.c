@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
     FILE* instancia;
     char caminho[100];
 
-    time_t start, end;
+    clock_t start, end;
 
     int TAM = atoi(argv[1]);
     char algoritmo[14];
@@ -44,7 +44,6 @@ int main(int argc, char** argv) {
             fscanf(instancia, "%d", &valores[j]);
         }
 
-        // setar o tempo inicial
         if (isMerge) {
             start = clock();
             mergeSort(valores, TAM);
@@ -61,7 +60,7 @@ int main(int argc, char** argv) {
             end = clock();
         }
 
-        tempo[i] = difftime(end, start) / CLOCKS_PER_SEC;
+        tempo[i] = (double)(end - start) / CLOCKS_PER_SEC;
 
         fclose(instancia);
     }
