@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "mergesort.h": "c",
-        "radixsort.h": "c"
+        "radixsort.h": "c",
+        "stdbool.h": "c",
+        "time.h": "c"
     }
 }
