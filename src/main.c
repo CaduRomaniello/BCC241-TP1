@@ -61,6 +61,7 @@ int main(int argc, char** argv) {
         }
 
         tempo[i] = (double)(end - start) / CLOCKS_PER_SEC;
+        printf("%.8lf\n", tempo[i]);
 
         fclose(instancia);
     }
