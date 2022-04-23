@@ -46,7 +46,7 @@ void countingSort(int* content, int length, int expo) {
 void radixSort(int* v, int length) {
     int max = findMaximum(v, length);
 
-    for (int expo = 1; (max / expo) > 0; expo *= 10) {
+    for (int expo = 1; (max / expo) > 0; expo *= 10) {  // Custo P
         countingSort(v, length, expo);
     }
 }
