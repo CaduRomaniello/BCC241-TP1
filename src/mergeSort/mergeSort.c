@@ -51,5 +51,5 @@ void mergeSort_intercala(int* vet, int esq, int meio, int dir) {
  * - Pelo Teorema Mestre simplificado temos que
  * - log a na base b = 1, onde a = 2, b = 2
  * - como temos o expoente do custo local como sendo 1 (O(n^1))
- * - temos que a complexidade é O(n * log n).
+ * - temos que a complexidade é Θ(n * log n).
  */
