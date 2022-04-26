@@ -56,7 +56,7 @@ var insertionGraph = [insertion];
 var graphOptions = {layout: layoutInsertion, filename: "insertionGraph", fileopt: "overwrite"};
 plotly.plot(insertionGraph, graphOptions, (err, msg) => {
     if (err) return console.log(err);
-    console.log("Plot URL: " + msg.url);
+    console.log("Plot insertion URL: " + msg.url);
 });
 
 //MERGE SORT
@@ -89,7 +89,7 @@ var mergeGraph = [merge];
 var graphOptions = {layout: layoutMerge, filename: "mergeGraph", fileopt: "overwrite"};
 plotly.plot(mergeGraph, graphOptions, (err, msg) => {
     if (err) return console.log(err);
-    console.log("Plot URL: " + msg.url);
+    console.log("Plot merge URL: " + msg.url);
 });
 
 // RADIX SORT
@@ -122,7 +122,7 @@ var radixGraph = [radix];
 var graphOptions = {layout: layoutRadix, filename: "radixGraph", fileopt: "overwrite"};
 plotly.plot(radixGraph, graphOptions, (err, msg) => {
     if (err) return console.log(err);
-    console.log("Plot URL: " + msg.url);
+    console.log("Plot radix URL: " + msg.url);
 });
 
 // COMPARACAO GERAL
@@ -153,7 +153,7 @@ var comparisonGraph = [insertion, merge, radix];
 var graphOptions = {layout: layoutGeral, filename: "comparisonGraph", fileopt: "overwrite"};
 plotly.plot(comparisonGraph, graphOptions, (err, msg) => {
 	if (err) return console.log(err);
-	console.log("Plot URL: " + msg.url);
+	console.log("Plot geral URL: " + msg.url);
 });
 
 // MERGE X RADIX
@@ -180,7 +180,7 @@ var merge_radix_Graph = [merge, radix];
 var graphOptions = {layout: layout_merge_radix, filename: "merge_radix_Graph", fileopt: "overwrite"};
 plotly.plot(merge_radix_Graph, graphOptions, (err, msg) => {
 	if (err) return console.log(err);
-	console.log("Plot URL: " + msg.url);
+	console.log("Plot merge x radix URL: " + msg.url);
 });
 
 // INSERTION X RADIX
@@ -207,7 +207,7 @@ var insertion_radix_Graph = [insertion, radix];
 var graphOptions = {layout: layout_insertion_radix, filename: "insertion_radix_Graph", fileopt: "overwrite"};
 plotly.plot(insertion_radix_Graph, graphOptions, (err, msg) => {
 	if (err) return console.log(err);
-	console.log("Plot URL: " + msg.url);
+	console.log("Plot insertion x radix URL: " + msg.url);
 });
 
 // INSERTION X Merge
@@ -234,5 +234,5 @@ var insertion_merge_Graph = [insertion, merge];
 var graphOptions = {layout: layout_insertion_merge, filename: "insertion_merge_Graph", fileopt: "overwrite"};
 plotly.plot(insertion_merge_Graph, graphOptions, (err, msg) => {
 	if (err) return console.log(err);
-	console.log("Plot URL: " + msg.url);
+	console.log("Plot insertion x merge URL: " + msg.url);
 });
