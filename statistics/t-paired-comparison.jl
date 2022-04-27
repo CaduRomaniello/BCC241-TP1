@@ -3,7 +3,7 @@ using Printf
 
 # ALPHA = 0.05
 # CONFIDANCE = 0.95
-# FREEDOM_DEGREE = 19
+# FREEDOM_DEGREE = SAMPLES - 1
 CRITICAL_T = 2.093 # = t_{FREEDOM_DEGREE, ALPHA}
 SAMPLES = 20
 
@@ -38,7 +38,6 @@ function main(ARGS)
     local upperbound = max(fstBound, sndBound)
 
     @printf("Confidance Interval: (%.4f;%.4f)", lowerbound, upperbound)
-
 
 end
 
